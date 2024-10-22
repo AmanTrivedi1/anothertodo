@@ -13,7 +13,7 @@
 
 
 
-I was just bored, so I threw this together. Planning to turn it into a full-blown web app called AnotherTodo someday. Funny thing is, I saw Magix UI has the exact same template, and they’re charging $49 for it. You can get it here for free, though—all you gotta do is drop a star.
+I was just bored, so I threw this together. Planning to turn it into a full-blown web app called AnotherTodo someday. Funny thing is, I saw Magic UI has the exact same template, and they’re charging $49 for it. You can get it here for free, though—all you gotta do is drop a star.
 
 You're welcome.
 
