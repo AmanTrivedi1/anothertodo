@@ -65,13 +65,19 @@ const Homepage = () => {
         heading="One Place"
         subheading="All your notes, tasks, and reminders in one place. Because, you know, juggling everything everywhere was totally working out before. (X to doubt)"
       />
-      <AnimatedBeamDemo />
-      <PricingPage />
+      <div className="my-20">
+        <AnimatedBeamDemo />
+      </div>
+      <div className="my-20">
+        <PricingPage />
+      </div>
       <Heading
         heading=" Loved by people"
         subheading="Even your ex is loving it—seriously, they can't get enough. Trust me, if it can keep their life together, it'll work wonders for yours"
       />
-      <MarqueeDemo />
+      <div className="my-20">
+        <MarqueeDemo />
+      </div>
       <div className=" mt-10  bg-black">
         <Footer />
       </div>
