@@ -6,6 +6,7 @@ import {
   InputIcon,
 } from "@radix-ui/react-icons";
 import { BentoCard, BentoGrid } from "../ui/bento-grid";
+import Image from "next/image";
 
 const features = [
   {
@@ -15,9 +16,12 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
+        width={500}
+        height={500}
+        alt="noteimage"
         src="/notebookimage.jpg"
-        className="absolute -right-20 -top-20 opacity-60"
+        className="absolute -right-20 -top-20 rounded-lg  object-fill w-full opacity-60"
       />
     ),
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
@@ -29,9 +33,12 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
+        width={500}
+        height={500}
+        alt="noteimage"
         src="/notebookimage.jpg"
-        className="absolute -right-20 -top-20 opacity-60"
+        className="absolute -right-20 -top-20 rounded-lg object-fill w-full opacity-60"
       />
     ),
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
@@ -43,9 +50,12 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
+        width={500}
+        height={500}
+        alt="noteimage"
         src="/notebookimage.jpg"
-        className="absolute -right-20 -top-20 opacity-60"
+        className="absolute -right-20 -top-20 rounded-lg object-fill w-full opacity-60"
       />
     ),
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
@@ -57,9 +67,12 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
+        width={500}
+        height={500}
+        alt="noteimage"
         src="/notebookimage.jpg"
-        className="absolute -right-20 -top-20 opacity-60"
+        className="absolute -right-20 -top-20 rounded-lg object-fill w-full opacity-60"
       />
     ),
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
@@ -72,7 +85,10 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: (
-      <img
+      <Image
+        width={500}
+        height={500}
+        alt="noteimage"
         src="/notebookimage.jpg"
         className="absolute -right-20 -top-20 rounded-lg object-fill w-full opacity-60"
       />
