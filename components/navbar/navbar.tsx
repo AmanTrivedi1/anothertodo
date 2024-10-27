@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import React from "react";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -9,11 +10,15 @@ const Navbar = () => {
         <div className="max-w-7xl m-auto p-3">
           <div className="flex items-center h-10 justify-between">
             <div>
-              <h1>Another Todo</h1>
+              <Image src="/logo.svg" alt="logo" width={40} height={40} />
             </div>
-            <div className="hidden sm:flex items-center gap-x-4">
-              <Button variant="link">Login</Button>
-              <Button variant="secondary">Sign up</Button>
+            <div className="flex items-center gap-x-4">
+              <Button className="" variant="link">
+                Login
+              </Button>
+              <Button className="sm:block hidden" variant="secondary">
+                Sign up
+              </Button>
             </div>
           </div>
         </div>

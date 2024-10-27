@@ -3,14 +3,13 @@ import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-
 import Heading from "../heading/heading";
-
 const pricingPlans = [
   {
     id: 1,
     name: "Basic",
-    description: "A basic plan for startups and individual users",
+    description:
+      "A basic plan for startups and individual users limits upto 5 users.",
     monthlyPrice: 10,
     yearlyPrice: 100,
     features: [
@@ -44,7 +43,21 @@ const pricingPlans = [
       "Custom AI solutions",
       "Unlimited todos",
       "Custom integrations",
-      "Data security and compliance",
+      "Data intigrity",
+    ],
+  },
+  {
+    id: 4,
+    name: "Another Level",
+    description:
+      "An enterprise plan with advanced features for large organizations",
+    monthlyPrice: 500,
+    yearlyPrice: 2000,
+    features: [
+      "Custom AI solutions",
+      "Unlimited services",
+      "Custom integrations ",
+      "Data security",
     ],
   },
 ];
@@ -53,7 +66,7 @@ export default function GradientPricingPage() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <div className="   p-8">
+    <div className="p-8">
       <div className="max-w-7xl mx-auto">
         <Heading
           heading="Simple Pricing"
@@ -62,7 +75,7 @@ export default function GradientPricingPage() {
           brace yourself—these prices are about to get real"
         />
 
-        <div className="flex items-center justify-center mb-12">
+        <div className="flex items-center   justify-center mb-12">
           <span
             className={`mr-2 ${isAnnual ? "text-muted-foreground" : "text-white"}`}
           >
@@ -75,33 +88,33 @@ export default function GradientPricingPage() {
             Annual
           </span>
 
-          <span className="ml-2  opacity-70 line-clamp-1 text-xs font-bold border rounded-lg px-4 py-2">
-            2 MONTHS FREE
-          </span>
+          
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className=" p-6 flex flex-col border -z-50 rounded-lg bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 via-black to-black opacity-70"
+              className=" p-6 flex flex-col border  rounded-lg  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 via-black to-black pointer-events-none "
             >
               <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <p className="text-gray-300 mb-4">{plan.description}</p>
+              <p className="text-gray-300 mb-4 text-sm">{plan.description}</p>
               <div className="text-4xl font-bold mb-4 ">
                 ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
                 <span className="text-xl font-normal text-gray-400">
                   /{isAnnual ? "year" : "month"}
                 </span>
               </div>
-              <Button className="mb-6 transition-all duration-300">
+              <Button className="mb-6 transition-all cursor-pointer ">
                 Subscribe
               </Button>
               <ul className="space-y-2 mt-auto">
                 {plan.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center">
-                    <Check className="h-5 w-5 text-green-400 mr-2" />
-                    <span className="text-gray-200">{feature}</span>
+                    <span className="bg-green-500 h-6 w-6 rounded-full flex items-center justify-center mr-2">
+                      <Check size={18} className="text-white" />
+                    </span>
+                    <span className="text-gray-200 text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
