@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
@@ -52,7 +53,7 @@ export default function GradientPricingPage() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <div className=" bg-black text-white p-8">
+    <div className="   p-8">
       <div className="max-w-7xl mx-auto">
         <Heading
           heading="Simple Pricing"
@@ -74,7 +75,7 @@ export default function GradientPricingPage() {
             Annual
           </span>
 
-          <span className="ml-2  opacity-70  text-xs font-bold border rounded-lg px-4 py-2">
+          <span className="ml-2  opacity-70 line-clamp-1 text-xs font-bold border rounded-lg px-4 py-2">
             2 MONTHS FREE
           </span>
         </div>
@@ -83,11 +84,11 @@ export default function GradientPricingPage() {
           {pricingPlans.map((plan, index) => (
             <div
               key={index}
-              className=" p-6 flex flex-col border rounded-lg bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 via-black to-black opacity-70"
+              className=" p-6 flex flex-col border -z-50 rounded-lg bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 via-black to-black opacity-70"
             >
               <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
               <p className="text-gray-300 mb-4">{plan.description}</p>
-              <div className="text-4xl font-bold mb-4 bg-gradient-to-r from-white to-gray-300 text-transparent bg-clip-text">
+              <div className="text-4xl font-bold mb-4 ">
                 ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
                 <span className="text-xl font-normal text-gray-400">
                   /{isAnnual ? "year" : "month"}

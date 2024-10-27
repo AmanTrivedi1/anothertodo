@@ -13,6 +13,8 @@ import { MarqueeDemo } from "../marquee/marquee";
 import Footer from "../footer/footer";
 import { AnimatedBeamDemo } from "../animatedbeam/animatedbeam";
 import Heading from "../heading/heading";
+import { BentoInfo } from "../bentoinfo/bentoinfo";
+
 const Homepage = () => {
   return (
     <div>
@@ -60,6 +62,14 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      <div></div>
+      <Heading
+        heading="How to use"
+        subheading="You can track your tasks, set reminders, and share your ideas with ease. , in one place"
+      />
+      <div className="my-20 px-2">
+        <BentoInfo />
+      </div>
 
       <Heading
         heading="One Place"
@@ -78,6 +88,7 @@ const Homepage = () => {
       <div className="my-20">
         <MarqueeDemo />
       </div>
+
       <div className=" mt-10  bg-black">
         <Footer />
       </div>

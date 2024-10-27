@@ -1,3 +1,4 @@
+"use client";
 import { GithubIcon, InstagramIcon,  TwitterIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
