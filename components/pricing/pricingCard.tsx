@@ -1,124 +1,149 @@
 "use client";
+
 import { useState } from "react";
-import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Switch } from "@/components/ui/switch";
+import { Wifi } from "lucide-react";
+import { Card } from "../ui/card";
+import { Label } from "../ui/label";
 import Heading from "../heading/heading";
-const pricingPlans = [
+
+const subscriptionPlans = [
   {
-    id: 1,
     name: "Basic",
-    description:
-      "A basic plan for startups and individual users limits upto 5 users.",
-    monthlyPrice: 10,
-    yearlyPrice: 100,
+    monthlyPrice: "$9.99",
+    annualPrice: "$99.99",
+    color: "from-gray-600 to-gray-800",
+    features: ["10GB Storage", "2 Users", "Basic Support"],
+  },
+  {
+    name: "Pro",
+    monthlyPrice: "$19.99",
+    annualPrice: "$199.99",
+    color: "from-blue-600 to-blue-800",
+    isPremium: true,
     features: [
-      "AI-powered analytics",
-      "Basic support",
-      "40 is the limit",
-      "Access to basic AI tools",
+      "100GB Storage",
+      "5 Users",
+      "Priority Support",
+      "Advanced Analytics",
     ],
   },
   {
-    id: 2,
-    name: "Premium",
-    description: "A premium plan for growing businesses or personal projects",
-    monthlyPrice: 20,
-    yearlyPrice: 200,
+    name: "Team",
+    monthlyPrice: "$49.99",
+    annualPrice: "$499.99",
+    color: "from-gray-600 to-gray-800",
     features: [
-      "Priority support",
-      "100 todos",
-      "Access to all AI tools",
-      "Custom integrations",
+      "500GB Storage",
+      "10 Users",
+      "24/7 Support",
+      "Custom Integrations",
     ],
   },
   {
-    id: 3,
     name: "Enterprise",
-    description:
-      "An enterprise plan with advanced features for large organizations",
-    monthlyPrice: 50,
-    yearlyPrice: 500,
+    monthlyPrice: "$99.99",
+    annualPrice: "$999.99",
+    color: "from-gray-600 to-gray-800",
     features: [
-      "Custom AI solutions",
-      "Unlimited todos",
-      "Custom integrations",
-      "Data intigrity",
-    ],
-  },
-  {
-    id: 4,
-    name: "Another Level",
-    description:
-      "An enterprise plan with advanced features for large organizations",
-    monthlyPrice: 500,
-    yearlyPrice: 2000,
-    features: [
-      "Custom AI solutions",
-      "Unlimited services",
-      "Custom integrations ",
-      "Data security",
+      "Unlimited Storage",
+      "Unlimited Users",
+      "Dedicated Support",
+      "AI-Powered Insights",
     ],
   },
 ];
 
-export default function GradientPricingPage() {
+export default function Component() {
   const [isAnnual, setIsAnnual] = useState(false);
 
   return (
-    <div className="p-8">
+    <div className="py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <Heading
           heading="Simple Pricing"
-          subheading=" Enjoy your free ride while it lasts! I wont charge you a dime until
-          you have squeezed every last drop out of the free tier. After that,
-          brace yourself—these prices are about to get real"
+          subheading="Enjoy your free ride while it lasts! I won’t charge you a dime until you have squeezed every last drop out of the free tier. After that, brace yourself—these prices are about to get real."
         />
-
-        <div className="flex items-center   justify-center mb-12">
-          <span
-            className={`mr-2 ${isAnnual ? "text-muted-foreground" : "text-white"}`}
-          >
+        <div className="flex justify-center items-center mb-8">
+          <Label htmlFor="annual-toggle" className="mr-2 text-white">
             Monthly
-          </span>
-          <Switch checked={isAnnual} onCheckedChange={setIsAnnual} />
-          <span
-            className={`ml-2 ${isAnnual ? "text-white" : "text-muted-foreground"}`}
-          >
+          </Label>
+          <Switch
+            id="annual-toggle"
+            checked={isAnnual}
+            onCheckedChange={setIsAnnual}
+          />
+          <Label htmlFor="annual-toggle" className="ml-2 text-white">
             Annual
-          </span>
-
-          
+          </Label>
         </div>
-
-        <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pricingPlans.map((plan, index) => (
-            <div
-              key={index}
-              className=" p-6 flex flex-col border  rounded-lg  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900 via-black to-black pointer-events-none "
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {subscriptionPlans.map((plan) => (
+            <Card
+              key={plan.name}
+              className={`relative overflow-hidden transition-all duration-300 transform hover:scale-105 bg-black border rounded-xl ${plan.isPremium ? "shadow-lg shadow-purple-900" : "ring-offset-purple-900"}`}
             >
-              <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-              <p className="text-gray-300 mb-4 text-sm">{plan.description}</p>
-              <div className="text-4xl font-bold mb-4 ">
-                ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
-                <span className="text-xl font-normal text-gray-400">
-                  /{isAnnual ? "year" : "month"}
-                </span>
-              </div>
-              <Button className="mb-6 transition-all cursor-pointer ">
-                Subscribe
-              </Button>
-              <ul className="space-y-2 mt-auto">
-                {plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-center">
-                    <span className="bg-green-500 h-6 w-6 rounded-full flex items-center justify-center mr-2">
-                      <Check size={18} className="text-white" />
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${plan.color} opacity-70`}
+              ></div>
+              <div className="absolute inset-0 bg-black rounded-lg backdrop-blur-sm"></div>
+              <div className="relative z-10 p-6 h-full flex flex-col justify-between">
+                <div>
+                  <div className="flex justify-between items-start mb-4">
+                    <h3
+                      className={`text-2xl font-bold ${plan.isPremium ? "text-purple-900" : "text-white"}`}
+                    >
+                      {plan.name}
+                    </h3>
+                    <div className="w-12 h-8 bg-yellow-300 rounded-md flex items-center justify-center">
+                      <div className="w-8 h-6 bg-yellow-400 rounded-sm"></div>
+                    </div>
+                  </div>
+                  <div
+                    className={`text-3xl font-bold mb-4 ${plan.isPremium ? "text-purple-900" : "text-white"}`}
+                  >
+                    {isAnnual ? plan.annualPrice : plan.monthlyPrice}
+                    <span className="text-lg font-normal">
+                      /{isAnnual ? "year" : "mo"}
                     </span>
-                    <span className="text-gray-200 text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  </div>
+                  <div className="text-sm mb-4">
+                    {plan.isPremium ? "5678" : "1234"}{" "}
+                    {plan.isPremium ? "9012" : "5678"} **** ****
+                  </div>
+                  <ul className="text-gray-300 space-y-2 mb-6">
+                    {plan.features.map((feature, index) => (
+                      <li key={index} className="flex items-center text-sm">
+                        <span
+                          className={`w-1.5 h-1.5 ${plan.isPremium ? "bg-purple-900" : "bg-gray-400"} rounded-full mr-2`}
+                        ></span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-white text-opacity-80 text-sm">
+                      Valid thru: 12/25
+                    </div>
+                    <Wifi
+                      className={`h-6 w-6 ${plan.isPremium ? "text-blue-300" : "text-white text-opacity-80"}`}
+                    />
+                  </div>
+                  <Button
+                    className={`w-full transition-colors duration-300 ${
+                      plan.isPremium
+                        ? "bg-purple-900 hover:bg-purple-950 text-white"
+                        : ""
+                    }`}
+                  >
+                    Choose Plan
+                  </Button>
+                </div>
+              </div>
+            </Card>
           ))}
         </div>
       </div>
