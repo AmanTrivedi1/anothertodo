@@ -1,7 +1,7 @@
-"use client";
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { signInAction } from "@/actions/auth-action";
 
 const Navbar = () => {
   return (
@@ -13,9 +13,9 @@ const Navbar = () => {
               <Image src="/logo.svg" alt="logo" width={40} height={40} />
             </div>
             <div className="flex items-center gap-x-4">
-              <Button className="" variant="link">
-                Login
-              </Button>
+              <form action={signInAction}>
+                <Button>Login</Button>
+              </form>
               <Button className="sm:block hidden" variant="secondary">
                 Sign up
               </Button>
